@@ -658,7 +658,7 @@ async function load(){
   }catch(e){}
   if(!DATA || !DATA.skus){
     try{
-      const res2 = await fetch("data/prices.json");
+      const res2 = await fetch("data/prices.json?_=" + Date.now(), {cache: "no-store"});
       if(res2.ok){ DATA = await res2.json(); }
     }catch(e){}
   }
